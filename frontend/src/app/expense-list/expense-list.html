@@ -1,0 +1,21 @@
+<h2>Expense List</h2>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Title</th>
+    <th>Amount</th>
+    <th>Category</th>
+    <th>Date</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let e of expenses">
+    <td>{{e.title}}</td>
+    <td>{{e.amount}}</td>
+    <td>{{e.category}}</td>
+    <td>{{e.date}}</td>
+    <td>
+      <button (click)="deleteExpense(e.id)">Delete</button>
+    </td>
+  </tr>
+</table>

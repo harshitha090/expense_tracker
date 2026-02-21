@@ -1,0 +1,62 @@
+
+<div class="cards">
+
+  <div class="card">
+    <h3>Total Expense</h3>
+    <p>₹ {{ totalExpense }}</p>
+  </div>
+
+  <div class="card">
+    <h3>This Month</h3>
+    <p>₹ {{ monthlyExpense }}</p>
+  </div>
+
+  <div class="card">
+    <h3>This Week</h3>
+    <p>₹ {{ weeklyExpense }}</p>
+  </div>
+
+  <div class="card points">
+    <h3>🏆 Savings Points</h3>
+    <p>{{ savingsPoints }}</p>
+  </div>
+
+</div>
+<<div class="filter-container">
+
+  <label>Filter By:</label>
+
+  <select [(ngModel)]="selectedFilter"
+          (change)="applyFilter()">
+    <option value="week">This Week</option>
+    <option value="month">This Month</option>
+    <option value="year">This Year</option>
+  </select>
+
+</div>
+
+<div class="charts">
+
+  <div class="chart">
+    <h3>Category Distribution</h3>
+    <canvas
+      *ngIf="pieChartData"
+      baseChart
+      [data]="pieChartData"
+      [options]="pieChartOptions"
+      [type]="'pie'">
+    </canvas>
+  </div>
+
+  <div class="chart">
+    <h3>Monthly Expenses</h3>
+    <canvas
+      *ngIf="barChartData"
+      baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [type]="'bar'">
+    </canvas>
+  </div>
+
+</div>

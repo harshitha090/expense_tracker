@@ -1,0 +1,67 @@
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #1e293b;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* ================= MOBILE FIX ================= */
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .form {
+    flex-direction: column;   /* stack vertically */
+  }
+
+  .form input,
+  .form button {
+    width: 100%;              /* full width */
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;         /* allow scroll if needed */
+  }
+
+}

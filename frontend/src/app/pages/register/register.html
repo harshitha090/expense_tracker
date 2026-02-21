@@ -1,0 +1,93 @@
+<div class="page-wrapper">
+
+  <div class="app-header">
+    Expense App
+  </div>
+
+  <div class="register-container">
+    <div class="register-card">
+
+      <h2>Create Account</h2>
+
+      <form #form="ngForm">
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          [(ngModel)]="name"
+          name="name"
+          required />
+
+        <input
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="username"
+          name="username"
+          required />
+
+        <input
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          required />
+
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          required />
+
+        <!-- SEND / RESEND OTP BUTTON -->
+        <button
+  type="button"
+  class="primary-btn"
+  (click)="sendOtp()"
+  [disabled]="otpTimer > 0">
+
+  <span *ngIf="!showOtpField">Send OTP</span>
+
+  <span *ngIf="showOtpField && otpTimer > 0">
+    {{ timerDisplay }}
+  </span>
+
+  <span *ngIf="showResend">
+    Resend OTP
+  </span>
+
+</button>
+
+        <!-- OTP SECTION -->
+        <div *ngIf="showOtpField" class="otp-section">
+
+          <input
+            type="text"
+            placeholder="Enter OTP"
+            [(ngModel)]="otp"
+            name="otp"
+            required />
+
+          <button
+            type="button"
+            class="verify-btn"
+            (click)="verifyOtp()">
+            Verify OTP
+          </button>
+
+        </div>
+
+      </form>
+
+      <p class="switch">
+        Already registered?
+        <a routerLink="/login">Login</a>
+      </p>
+
+      <p class="message" *ngIf="message">{{ message }}</p>
+      <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+
+    </div>
+  </div>
+
+</div>

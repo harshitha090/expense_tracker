@@ -1,0 +1,226 @@
+/* ================= GLOBAL FIX ================= */
+* {
+  box-sizing: border-box;
+}
+
+/* ================= CONTAINER ================= */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* ================= CARD ================= */
+.profile-card {
+  width: 460px;
+  max-width: 100%;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ================= TITLE ================= */
+.profile-card h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+/* ================= IMAGE SECTION ================= */
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.profile-img,
+.placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.placeholder {
+  background: #1e293b;
+  color: white;
+  font-size: 40px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Upload button BELOW image */
+.upload-btn {
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.upload-btn:hover {
+  opacity: 0.9;
+}
+
+/* ================= FIELD ================= */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Wrapper to control overflow */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 38px 12px 12px; /* space for pencil */
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  background: #f9fafb;
+  transition: 0.2s ease;
+}
+
+.input-wrapper input:focus {
+  border-color: #1e293b;
+  outline: none;
+  background: #ffffff;
+}
+
+/* Pencil button aligned properly */
+.edit-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6b7280;
+  transition: 0.2s ease;
+}
+
+.edit-btn:hover {
+  color: #1e293b;
+}
+
+/* ================= BUTTONS ================= */
+.primary-btn {
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}
+
+.secondary-btn {
+  background: #e5e7eb;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: #d1d5db;
+}
+
+.danger-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.danger-btn:hover {
+  background: #dc2626;
+}
+
+/* ================= PASSWORD SECTION ================= */
+.password-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f3f4f6;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.password-section input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+/* ================= MESSAGE ================= */
+.message {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+.status-message {
+  margin-top: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #16a34a;
+}
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .profile-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  .profile-container {
+    padding: 30px 15px;
+  }
+
+  .profile-img,
+  .placeholder {
+    width: 90px;
+    height: 90px;
+  }
+
+}

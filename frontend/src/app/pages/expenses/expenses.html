@@ -1,0 +1,64 @@
+<h2>Add Expense</h2>
+
+<form (ngSubmit)="addExpense()" #expenseForm="ngForm" class="form">
+
+  <input
+    type="text"
+    placeholder="Title"
+    name="title"
+    [(ngModel)]="newExpense.title"
+    required />
+
+  <input
+    type="number"
+    placeholder="Amount"
+    name="amount"
+    [(ngModel)]="newExpense.amount"
+    required />
+
+  <input
+    type="text"
+    placeholder="Category"
+    name="category"
+    [(ngModel)]="newExpense.category"
+    required />
+
+  <input
+    type="date"
+    name="date"
+    [(ngModel)]="newExpense.date"
+    required />
+
+  <button type="submit">Add Expense</button>
+
+</form>
+
+<hr>
+
+<h2>Expense List</h2>
+
+<table *ngIf="expenses.length > 0">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Category</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of expenses">
+  <td>{{ e.title }}</td>
+  <td>₹ {{ e.amount }}</td>
+  <td>{{ e.category }}</td>
+  <td>{{ e.date }}</td>
+  <td>
+    <button class="delete-btn" (click)="deleteExpense(e.id)">
+      Delete
+    </button>
+  </td>
+</tr>
+  </tbody>
+</table>
+
+<p *ngIf="expenses.length === 0">No expenses added yet.</p>

@@ -1,0 +1,62 @@
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" [class.mobile-open]="isMenuOpen">
+
+    <h3 class="logo">💰 ExpenseApp</h3>
+
+    <a routerLink="/dashboard"
+       routerLinkActive="active"
+       (click)="closeMenu()">Dashboard</a>
+
+    <a routerLink="/expenses"
+       routerLinkActive="active"
+       (click)="closeMenu()">Expenses</a>
+
+    <a routerLink="/profile"
+       routerLinkActive="active"
+       (click)="closeMenu()">Profile</a>
+
+    <a (click)="logout()">Logout</a>
+
+  </div>
+
+  <!-- OVERLAY (mobile only) -->
+  <div class="overlay"
+       *ngIf="isMenuOpen"
+       (click)="closeMenu()">
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="topbar">
+
+      <!-- HAMBURGER -->
+      <button class="menu-btn"
+              (click)="toggleMenu()">☰</button>
+
+      <h2 *ngIf="name">Welcome {{ name }} 👋</h2>
+
+      <div class="profile-area">
+
+        <img *ngIf="profileImage"
+             [src]="profileImage"
+             class="topbar-img">
+
+        <div *ngIf="!profileImage && name"
+             class="topbar-placeholder">
+          {{ name.charAt(0) }}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>

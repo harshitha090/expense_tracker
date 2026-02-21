@@ -1,0 +1,44 @@
+<div class="page-wrapper">
+
+  <div class="app-header">
+    Expense App
+  </div>
+
+  <div class="auth-container">
+    <div class="auth-card">
+
+      <h2>Login</h2>
+
+      <form (ngSubmit)="login()">
+
+        <input
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="user.username"
+          name="username"
+          required />
+
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="user.password"
+          name="password"
+          required />
+
+        <button type="submit">Login</button>
+
+      </form>
+
+      <p class="error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <p class="switch">
+        Don't have an account?
+        <a routerLink="/register">Register</a>
+      </p>
+
+    </div>
+  </div>
+
+</div>

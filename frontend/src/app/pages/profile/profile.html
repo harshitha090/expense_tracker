@@ -1,0 +1,72 @@
+<div class="profile-container">
+
+  <div class="profile-card">
+
+    <h2>My Profile</h2>
+
+    <!-- Profile Image -->
+    <div class="image-section">
+      <img *ngIf="previewImage" [src]="previewImage" class="profile-img">
+      <div *ngIf="!previewImage" class="placeholder">
+        {{ user.name?.charAt(0) }}
+      </div>
+
+      <input type="file" hidden #fileInput (change)="onFileSelected($event)">
+      <button class="upload-btn" (click)="fileInput.click()">
+        Change Photo
+      </button>
+    </div>
+
+    <!-- Name -->
+    <div class="field">
+      <label>Name</label>
+      <div class="input-wrapper">
+        <input [disabled]="!editName" [(ngModel)]="user.name">
+        <button class="edit-btn" (click)="toggleEdit('name')">✏</button>
+      </div>
+    </div>
+
+    <!-- Username -->
+    <div class="field">
+      <label>Username</label>
+      <div class="input-wrapper">
+        <input [disabled]="!editUsername" [(ngModel)]="user.username">
+        <button class="edit-btn" (click)="toggleEdit('username')">✏</button>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="field">
+      <label>Email</label>
+      <div class="input-wrapper">
+        <input [disabled]="!editEmail" [(ngModel)]="user.email">
+        <button class="edit-btn" (click)="toggleEdit('email')">✏</button>
+      </div>
+    </div>
+
+    <button class="primary-btn" (click)="updateProfile()">
+      Save Changes
+    </button>
+
+    <button class="secondary-btn" (click)="togglePasswordSection()">
+      Change Password
+    </button>
+
+    <div *ngIf="showPasswordSection" class="password-section">
+      <input type="password" placeholder="Current Password" [(ngModel)]="currentPassword">
+      <input type="password" placeholder="New Password" [(ngModel)]="newPassword">
+      <input type="password" placeholder="Confirm New Password" [(ngModel)]="confirmPassword">
+      <button class="primary-btn" (click)="changePassword()">Update Password</button>
+    </div>
+
+    <button class="danger-btn" (click)="deleteAccount()">
+      Delete Account
+    </button>
+
+    <p class="status-message" *ngIf="message">
+  {{ message }}
+</p>
+
+  </div>
+
+</div>
