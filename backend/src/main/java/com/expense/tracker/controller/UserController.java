@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.expense.tracker.model.User;
+import com.expense.tracker.repository.ExpenseRepository;
 import com.expense.tracker.repository.UserRepository;
 
 @RestController
@@ -20,9 +21,12 @@ import com.expense.tracker.repository.UserRepository;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final ExpenseRepository expenseRepository;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository,
+                          ExpenseRepository expenseRepository) {
         this.userRepository = userRepository;
+        this.expenseRepository = expenseRepository;
     }
 
     // ================= UPDATE USER =================
@@ -48,7 +52,7 @@ public class UserController {
         return ResponseEntity.ok(updated);
     }
 
-    // ================= DELETE USER (CORRECTED) =================
+    // ================= DELETE USER (FIXED) =================
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
 
@@ -60,8 +64,10 @@ public class UserController {
                     .body("User not found");
         }
 
-        // Just delete user
-        // Expenses will be deleted automatically because of cascade
+        // 🔥 FIRST DELETE ALL EXPENSES OF THIS USER
+        expenseRepository.deleteByUser(user);
+
+        // 🔥 THEN DELETE USER
         userRepository.delete(user);
 
         return ResponseEntity.ok("User deleted successfully");
