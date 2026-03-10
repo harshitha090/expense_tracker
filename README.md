@@ -40,3 +40,15 @@ Built using **Spring Boot (backend)** and **Angular (frontend)**.
 - VS Code
 - Maven
 - Git
+
+## Environment Variables
+
+Before running the backend, set the following environment variables:
+
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
+
+Example (PowerShell):
+
+$env:MAIL_USERNAME="your_email@gmail.com"
+$env:MAIL_PASSWORD="your_app_password"
