@@ -28,6 +28,7 @@ Built using **Spring Boot (backend)** and **Angular (frontend)**.
 - ng2-charts
 - HTML
 - CSS
+- Java
 - TypeScript
 
 ### Backend
